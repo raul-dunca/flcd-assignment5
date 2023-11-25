@@ -1,0 +1,31 @@
+set of non terminals: program declaration stmt typedecl type_add type namesdecl names_add expression term operation condition negationcond normcondition relation assignstmt iostmt print_output ifstmt elifstmt loopstmt forcond specialstmt breakstmt stmt allstmt simplestmt structstmt
+set of terminals: id nr int string if elif else loop names in out break + - * / $ ~ % < > <= >= == = != ! [ ] { } ; ,
+starting point: program
+productions:
+program -> declaration stmt program | declaration program | stmt program | declaration | stmt
+declaration -> typedecl | namesdecl
+typedecl -> type id type_add
+type_add -> ,id type_add | ;
+type -> int | string
+namesdecl -> names id {nr} names_add
+names_add -> ,id {nr} names_add ; | ;
+expression -> term | term operation expression
+term -> ( expression ) | id | nr
+operation -> + | - | * | /
+condition -> negationcond | normcondition
+negationcond -> ! ( condition )
+normcondition -> expression relation expression
+relation -> < | > | <= | >= | == | !=
+assignstmt -> id = expression ;
+iostmt -> in ( id ) ; | out ( id ) ; | out ( print_output );
+print_output -> constring | id | id + print_output  | constring + print_output
+ifstmt -> if ( condition ) [ stmt ] | if ( condition ) [ stmt ] elifstmt | if ( condition ) [ stmt ] elifstmt else [ stmt ] | if ( condition ) [ stmt ] else [ stmt ]
+elifstmt -> elif (condition ) [ stmt ] | elif (condition ) [ stmt ] elifstmt
+loopstmt -> loop ( condition ) [ stmt ] | loop ( forcond ) [ stmt ]
+forcond -> assignstmt condition ; specialstmt
+specialstmt -> id $ ; | id ~ ;
+breakstmt -> break ;
+stmt -> allstmt | allstmt stmt
+allstmt -> simplstmt | structstmt
+simplestmt -> assignstmt | iostmt | specialstmt | breakstmt
+structstmt -> ifstmt | loopstmt

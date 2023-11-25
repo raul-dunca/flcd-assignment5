@@ -1,0 +1,24 @@
+
+file := "states: " state_list "\n"
+	"alphabet: " alphabet_list "\n"
+	"initial: "  initial "\n"
+	"final: " final_list "\n"
+	"transitions:\n" transitions_list
+
+alphabet_list := symbol {" " symbol}
+
+symbol := "A" | "B" | ... | "Z" | "a" | "b" | ... | "z" | "0" | "1" | ... | "9" | "_" | "!" | ","| "." | "?" | ...
+
+initial := state
+final_list := state {" " state}
+states := state {" " state}
+
+transitions_list := transition {"\n" transition}
+
+transition := state " " symbol " " state
+
+state := char nr {char nr}
+char := "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
+nr := non_zero_digit{digit}
+non_zero_digit := "1" | "2" | ... | "9"
+digit := "0" | "1" | "2" | ... | "9"

@@ -1,0 +1,23 @@
+
+
+
+names a {5};
+int i, n;
+string s = "Raul;
+
+out("Enter the len:");
+in(n);
+
+loop (i=0; i<n; i@)
+[
+	out("Enter a name: ");
+	in(s);
+	a{i}=s;
+
+]
+
+loop (n>0)
+[
+	out("Invers " + n + "nume: "+a{n});
+	n~;
+]

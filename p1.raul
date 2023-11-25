@@ -1,0 +1,25 @@
+
+
+int a, b;
+
+in(a);
+in(b);
+
+int c, d;
+c= a;
+d=b;
+
+loop (a!=b)
+[
+	if (a>b)
+	[
+		a=a-b;
+	]
+    else
+	[
+		b=b-a;
+	]
+
+]
+
+out("GCD between "+ c + "and " + d +"is: " + a);

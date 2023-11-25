@@ -1,0 +1,7 @@
+set of non terminals: A B
+set of terminals: 1 0
+starting point: A
+productions:
+A -> 1 | 0A | A | B
+B -> 0
+A -> 0

@@ -1,0 +1,30 @@
+
+
+names a {5};
+int i;
+string s;
+
+loop (i=0; i<5; i$)
+[
+	out("Enter a name: ");
+	in(s);
+	a{i}=s;
+
+]
+
+loop (i=0; i<5; i$)
+[
+	if (a{i}=="Raul")
+	[
+		out("Hi admin!");
+	]
+	elif (a{i}=="Kevin")
+	[
+		out("Hacker detected!");
+	]
+	else
+	[
+		out("Hi " + a{i} + "!");
+	]
+]
+

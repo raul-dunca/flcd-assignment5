@@ -1,0 +1,28 @@
+
+
+int a,d,i;
+
+d=2;
+
+out("Enter a number:");
+in (a);
+
+if (a<=1)
+[
+	out("Number "+ a +" is not prime !");
+]
+
+loop (i=d; i*i<=a; i$)
+[
+
+	if (a%d==0)
+	[
+		out("Number "+ a +" is not prime !");
+		break;
+	
+	]
+	
+
+]
+
+out("Number "+ a +" is prime !");
